@@ -1,5 +1,5 @@
 {
-    "name": "citrus-framework/contract",
+    "name": "citrus-framework/http",
     "description": "php http transfer library",
     "keywords": ["citrus", "php", "library", "http"],
     "type": "library",
