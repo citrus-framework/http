@@ -104,4 +104,28 @@ class Request
     {
         return Arrays::path($this->json, $path);
     }
+
+
+
+    /**
+     * リクエスト時間の取得
+     *
+     * @return int
+     */
+    public function requestTime(): int
+    {
+        return $this->request_time;
+    }
+
+
+
+    /**
+     * リクエストパスの取得
+     *
+     * @return string
+     */
+    public function requestPath(): string
+    {
+        return $this->request_path;
+    }
 }
