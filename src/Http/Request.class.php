@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 namespace Citrus\Http;
 
-use Citrus\Variable\Arrays;
-
 /**
  * リクエスト処理
  */
