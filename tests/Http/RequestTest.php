@@ -35,5 +35,6 @@ class RequestTest extends TestCase
         $this->assertSame('fuga2', $request->post('hoge2'));
         $this->assertTrue($request->isGet());
         $this->assertTrue($request->isPost());
+        $this->assertFalse($request->isJson());
     }
 }

@@ -56,4 +56,16 @@ trait Post
     {
         return (0 < count($this->post));
     }
+
+
+
+    /**
+     * POSTデータの設定
+     *
+     * @return void
+     */
+    private function setupPost(): void
+    {
+        $this->post = $_POST;
+    }
 }

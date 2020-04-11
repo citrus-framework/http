@@ -47,10 +47,10 @@ class Request
         $self->method = Method::judgement();
 
         // リクエスト情報
-        $self->get = $_GET;
-        $self->post = $_POST;
+        $self->setupGet();
+        $self->setupPost();
+        $self->setupJson();
         $self->files = $_FILES;
-        $self->json = file_get_contents('php://input');
 
         // リクエスト時間
         $self->request_time = $_SERVER['REQUEST_TIME'];

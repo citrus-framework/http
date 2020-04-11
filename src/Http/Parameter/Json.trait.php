@@ -56,4 +56,17 @@ trait Json
     {
         return (0 < count($this->json));
     }
+
+
+
+    /**
+     * JSONデータの設定
+     *
+     * @return void
+     */
+    private function setupJson(): void
+    {
+        $this->json = file_get_contents('php://input');
+        $this->json = ('' === $this->json ? [] : $this->json);
+    }
 }

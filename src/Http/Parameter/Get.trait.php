@@ -56,4 +56,16 @@ trait Get
     {
         return (0 < count($this->get));
     }
+
+
+
+    /**
+     * GETデータの設定
+     *
+     * @return void
+     */
+    private function setupGet(): void
+    {
+        $this->get = $_GET;
+    }
 }
