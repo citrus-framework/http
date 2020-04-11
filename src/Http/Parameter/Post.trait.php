@@ -61,8 +61,6 @@ trait Post
 
     /**
      * POSTデータの設定
-     *
-     * @return void
      */
     private function setupPost(): void
     {
