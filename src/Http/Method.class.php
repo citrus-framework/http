@@ -64,12 +64,11 @@ class Method
         // グローバル変数から取得
         $request_method = strtolower($_SERVER['REQUEST_METHOD'] ?? '');
 
-        // 精査
-        if (true === in_array($request_method, self::$LISTS, true))
-        {
-            // 未定義のメソッドはありえない、とする
-            throw new HttpException(sprintf('未定義のリクエストメソッド「%s」', $request_method));
-        }
+        // 未定義のメソッドはありえない、とする
+        HttpException::exceptionElse(
+            in_array($request_method, self::$LISTS, true),
+            sprintf('未定義のリクエストメソッド「%s」', $request_method));
+
         return $request_method;
     }
 }

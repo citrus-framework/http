@@ -17,4 +17,25 @@ use Citrus\CitrusException;
  */
 class HttpException extends CitrusException
 {
+    /**
+     * {@inheritDoc}
+     *
+     * @throws HttpException
+     */
+    public static function exceptionIf($expr, string $message): void
+    {
+        parent::exceptionIf($expr, $message);
+    }
+
+
+
+    /**
+     * {@inheritDoc}
+     *
+     * @throws HttpException
+     */
+    public static function exceptionElse($expr, string $message): void
+    {
+        parent::exceptionElse($expr, $message);
+    }
 }
