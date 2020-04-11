@@ -17,20 +17,15 @@ use Citrus\Variable\Arrays;
  */
 class Request
 {
+    use Get;
+    use Post;
+    use Json;
+
     /** @var string メソッド */
     private $method;
 
-    /** @var array $_GET */
-    private $get = [];
-
-    /** @var array $_POST */
-    private $post = [];
-
     /** @var array $_FILES */
     private $files = [];
-
-    /** @var array php://input */
-    private $json = [];
 
     /** @var int request time unit timestamp */
     private $request_time;
@@ -64,45 +59,6 @@ class Request
         $self->request_path = ($parsed_uri['path'] ?? '');
 
         return $self;
-    }
-
-
-
-    /**
-     * GETデータの取得
-     *
-     * @param string $path パス
-     * @return mixed
-     */
-    public function get(string $path)
-    {
-        return Arrays::path($this->get, $path);
-    }
-
-
-
-    /**
-     * POSTデータの取得
-     *
-     * @param string $path パス
-     * @return mixed
-     */
-    public function post(string $path)
-    {
-        return Arrays::path($this->post, $path);
-    }
-
-
-
-    /**
-     * JSONデータの取得
-     *
-     * @param string $path パス
-     * @return mixed
-     */
-    public function json(string $path)
-    {
-        return Arrays::path($this->json, $path);
     }
 
 

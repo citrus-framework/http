@@ -12,7 +12,7 @@
         backupGlobals="false"
         beStrictAboutTestsThatDoNotTestAnything="false">
     <testsuites>
-        <testsuite name="CitrusIntersection tests">
+        <testsuite name="PHPUnit tests">
             <directory suffix="Test.php">tests/</directory>
         </testsuite>
     </testsuites>
