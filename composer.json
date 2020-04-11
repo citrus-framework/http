@@ -18,7 +18,6 @@
         "php": "^7.3",
         "phpunit/phpunit": "^8.4",
         "nunomaduro/phpinsights": "^v1.13",
-        "phan/phan": "^2.4",
         "ext-json": "*"
     },
     "autoload": {

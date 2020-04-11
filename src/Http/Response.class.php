@@ -26,7 +26,7 @@ class Response
     /**
      * constructor.
      *
-     * @param array $items
+     * @param array|null $items
      */
     public function __construct(array $items = [])
     {

@@ -61,8 +61,6 @@ trait Get
 
     /**
      * GETデータの設定
-     *
-     * @return void
      */
     private function setupGet(): void
     {

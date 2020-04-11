@@ -29,6 +29,15 @@ return [
         PhpCsFixer\Fixer\Phpdoc\AlignMultilineCommentFixer::class,
         PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ElseIfDeclarationSniff::class,
         PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\SpaceAfterCastSniff::class,
+        NunoMaduro\PhpInsights\Domain\Insights\ForbiddenTraits::class,
+        SlevomatCodingStandard\Sniffs\Classes\SuperfluousExceptionNamingSniff::class,
+        NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses::class,
+        SlevomatCodingStandard\Sniffs\Commenting\UselessInheritDocCommentSniff::class,
+        SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff::class,
+        SlevomatCodingStandard\Sniffs\ControlStructures\LanguageConstructWithParenthesesSniff::class,
+        SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff::class,
+        SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff::class,
+        SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff::class,
     ],
     'config' => [
         //  ExampleInsight::class => [
@@ -63,5 +72,8 @@ return [
             'absoluteLineLimit' => 120,
             'ignoreComments' => true,
         ],
+        \ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff::class => [
+            'maxLength' => 32,
+        ]
     ],
 ];

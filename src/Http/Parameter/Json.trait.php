@@ -61,8 +61,6 @@ trait Json
 
     /**
      * JSONデータの設定
-     *
-     * @return void
      */
     private function setupJson(): void
     {
