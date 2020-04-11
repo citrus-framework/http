@@ -64,7 +64,6 @@ trait Json
      */
     private function setupJson(): void
     {
-        $this->json = file_get_contents('php://input');
-        $this->json = ('' === $this->json ? [] : $this->json);
+        $this->json = (json_decode(file_get_contents('php://input'), true) ?? []);
     }
 }
