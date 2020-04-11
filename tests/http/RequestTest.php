@@ -27,10 +27,13 @@ class RequestTest extends TestCase
     {
         $_GET['hoge1'] = 'fuga1';
         $_POST['hoge2'] = 'fuga2';
+        $_SERVER['REQUEST_URI'] = 'http://example.com/';
         
         $request = Request::generate();
 
         $this->assertSame('fuga1', $request->get('hoge1'));
         $this->assertSame('fuga2', $request->post('hoge2'));
+        $this->assertTrue($request->isGet());
+        $this->assertTrue($request->isPost());
     }
 }
