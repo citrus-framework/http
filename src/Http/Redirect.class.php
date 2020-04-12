@@ -25,44 +25,4 @@ class Redirect
         header(sprintf('Location: %s', $location));
         exit;
     }
-
-
-
-    /**
-     * status 401
-     */
-    public static function status401(): void
-    {
-        header('HTTP/1.0 401 Unauthorized');
-    }
-
-
-
-    /**
-     * status 403
-     */
-    public static function status403(): void
-    {
-        header('HTTP/1.0 403 Forbidden');
-    }
-
-
-
-    /**
-     * status 404
-     */
-    public static function status404(): void
-    {
-        header('HTTP/1.0 404 Not Found');
-    }
-
-
-
-    /**
-     * status 503
-     */
-    public static function status503(): void
-    {
-        header('HTTP/1.0 503 Service Unavailable');
-    }
 }
