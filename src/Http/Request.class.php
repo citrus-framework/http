@@ -40,9 +40,10 @@ class Request
     /**
      * オブジェクトの生成
      *
+     * @return self
      * @throws HttpException
      */
-    public static function generate()
+    public static function generate(): self
     {
         $self = new self();
         // メソッドの判定
