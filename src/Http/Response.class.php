@@ -18,8 +18,11 @@ class Response
     /** @var bool result */
     public $result = false;
 
-    /** @var array result object */
+    /** @var array result objects */
     public $items = [];
+
+    /** @var array message objects */
+    public $messages = [];
 
 
 
@@ -35,6 +38,42 @@ class Response
             $this->result = true;
         }
         $this->items = $items;
+    }
+
+
+
+    /**
+     * JSON文字列を返却
+     *
+     * @return string
+     */
+    public function toJson(): string
+    {
+        return json_encode($this);
+    }
+
+
+
+    /**
+     * 結果アイテムの追加
+     *
+     * @param mixed $item 結果アイテム
+     */
+    public function addItem($item): void
+    {
+        $this->items[] = $item;
+    }
+
+
+
+    /**
+     * 結果メッセージの追加
+     *
+     * @param mixed $message 結果メッセージ
+     */
+    public function addMessage($message): void
+    {
+        $this->messages[] = $message;
     }
 
 
@@ -63,17 +102,5 @@ class Response
         $self = new self();
         $self->result = false;
         return $self;
-    }
-
-
-
-    /**
-     * JSON文字列を返却
-     *
-     * @return string
-     */
-    public function toJson(): string
-    {
-        return json_encode($this);
     }
 }

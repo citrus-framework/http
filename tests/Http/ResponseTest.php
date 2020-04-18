@@ -70,6 +70,6 @@ class ResponseTest extends TestCase
             'fuga',
         ];
         $response = new Response($items);
-        $this->assertSame(json_encode(['result' => true, 'items' => $items]), $response->toJson());
+        $this->assertSame(json_encode(['result' => true, 'items' => $items, 'messages' => []]), $response->toJson());
     }
 }
