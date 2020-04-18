@@ -10,6 +10,10 @@ declare(strict_types=1);
 
 namespace Citrus\Http;
 
+use Citrus\Http\Method\Get;
+use Citrus\Http\Method\Json;
+use Citrus\Http\Method\Post;
+
 /**
  * リクエスト処理
  */
