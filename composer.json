@@ -1,29 +1,29 @@
 {
-    "name": "citrus-framework/http",
-    "description": "php http transfer library",
-    "keywords": ["citrus", "php", "library", "http"],
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "take64",
-            "email": "take64@citrus.tk"
-        }
-    ],
-    "require": {
-        "citrus-framework/exception": "^1.0",
-        "citrus-framework/variables": "^1.0"
-    },
-    "require-dev": {
-        "php": "^7.3",
-        "phpunit/phpunit": "^8.4",
-        "nunomaduro/phpinsights": "^v1.13",
-        "ext-json": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Citrus\\": "src/",
-            "Test\\": "tests/"
-        }
+  "name": "citrus-framework/http",
+  "description": "php http transfer library",
+  "keywords": ["citrus", "php", "library", "http"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "take64",
+      "email": "take64@citrus.tk"
     }
+  ],
+  "require": {
+    "citrus-framework/exception": "^1.0",
+    "citrus-framework/variables": "^1.0",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "php": "^7.3",
+    "phpunit/phpunit": "^8.4",
+    "nunomaduro/phpinsights": "^v1.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "Citrus\\": "src/",
+      "Test\\": "tests/"
+    }
+  }
 }
