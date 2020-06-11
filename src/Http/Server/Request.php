@@ -8,14 +8,17 @@ declare(strict_types=1);
  * @license     http://www.citrus.tk/
  */
 
-namespace Citrus\Http;
+namespace Citrus\Http\Server;
 
-use Citrus\Http\Method\Get;
-use Citrus\Http\Method\Json;
-use Citrus\Http\Method\Post;
+use Citrus\Http\HttpException;
+use Citrus\Http\Method;
+use Citrus\Http\Server\Method\Get;
+use Citrus\Http\Server\Method\Json;
+use Citrus\Http\Server\Method\Post;
 
 /**
  * リクエスト処理
+ * このライブラリが配置される場所をサーバーとする場合
  */
 class Request
 {

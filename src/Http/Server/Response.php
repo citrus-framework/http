@@ -8,10 +8,11 @@ declare(strict_types=1);
  * @license     http://www.citrus.tk/
  */
 
-namespace Citrus\Http;
+namespace Citrus\Http\Server;
 
 /**
  * レスポンス処理
+ * このライブラリが配置される場所をサーバーとする場合
  */
 class Response
 {
