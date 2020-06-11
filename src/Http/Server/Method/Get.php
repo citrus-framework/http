@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @license     http://www.citrus.tk/
  */
 
-namespace Citrus\Http\Method;
+namespace Citrus\Http\Server\Method;
 
 use Citrus\Variable\Arrays;
 

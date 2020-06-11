@@ -10,6 +10,9 @@ declare(strict_types=1);
 
 namespace Citrus\Http;
 
+use Citrus\Http\Client\Request;
+use Citrus\Http\Client\Response;
+
 /**
  * Httpクライアント
  */
@@ -20,11 +23,13 @@ class Client
      *
      * @param string $url
      * @param array  $parameters
-     * @return string
+     * @return Response
      */
-    public static function get(string $url, array $parameters = []): string
+    public static function get(string $url, array $parameters = []): Response
     {
-        return self::request($url, Method::GET, $parameters);
+        return self::request(
+            (new Request($url))->setMethod(Method::GET)->setParameters($parameters)
+        );
     }
 
 
@@ -34,37 +39,39 @@ class Client
      *
      * @param string $url
      * @param mixed  $parameters
-     * @return string
+     * @return Response
      */
-    public static function post(string $url, $parameters = []): string
+    public static function post(string $url, $parameters = []): Response
     {
-        return self::request($url, Method::POST, $parameters);
+        return self::request(
+            (new Request($url))->setMethod(Method::POST)->setParameters($parameters)
+        );
     }
 
 
     /**
      * リクエストを送る
      *
-     * @param string       $url        URL
-     * @param string       $method     リクエストメソッド
-     * @param string|array $parameters パラメタ
-     * @return string
+     * @param Request $request リクエスト情報
+     * @return Response
      */
-    private static function request(string $url, string $method, $parameters): string
+    public static function request(Request $request): Response
     {
+        $url = $request->url;
+        $parameters = $request->parameters;
         // 接続オプション配列
         $options = [];
         // クエリパラメータが配列なら文字列化
         $http_query = (true === is_array($parameters) ? http_build_query($parameters) : $parameters);
 
         // リクエストパラメータ(GET)
-        if (Method::GET === $method)
+        if (Method::GET === $request->method)
         {
             // GETリクエストの場合にクエリパラメータにくっつける
-            $url = sprintf('%s?%s', $url, $http_query);
+            $url = sprintf('%s?%s', $request->url, $http_query);
         }
         // リクエストパラメータ(POST)
-        if (Method::POST === $method)
+        if (Method::POST === $request->method)
         {
             $options += [
                 CURLOPT_POST => true,
@@ -75,36 +82,17 @@ class Client
         // 固定的に設定しておくオプション
         $options += [
             CURLOPT_URL => $url, // URL
-            CURLOPT_HEADER => false, // ヘッダ内容を出力しない
-            CURLOPT_RETURNTRANSFER => true, // 結果を文字列で返却
             CURLOPT_FOLLOWLOCATION => true, // Locationヘッダが有る場合に追跡する
         ];
 
-        return self::curlRequest($options);
-    }
-
-
-
-    /**
-     * cURLでアクセスしてレスポンスを得る
-     *
-     * @param array $options curlのオプション配列
-     * @return string
-     */
-    private static function curlRequest(array $options): string
-    {
         // 接続開始
         $handle = curl_init();
-
         // オプション設定
         curl_setopt_array($handle, $options);
-
-        // 実行
-        $result = curl_exec($handle);
-
+        // 実行して情報を取得
+        $response = (new Response())->bind($handle);
         // 接続終了
         curl_close($handle);
-
-        return $result;
+        return $response;
     }
 }

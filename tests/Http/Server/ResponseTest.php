@@ -8,11 +8,9 @@ declare(strict_types=1);
  * @license     http://www.citrus.tk/
  */
 
-namespace Test\Http;
+namespace Test\Http\Server;
 
-use Citrus\Http\HttpException;
-use Citrus\Http\Request;
-use Citrus\Http\Response;
+use Citrus\Http\Server\Response;
 use PHPUnit\Framework\TestCase;
 
 /**
