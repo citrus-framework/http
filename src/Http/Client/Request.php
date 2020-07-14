@@ -45,7 +45,7 @@ class Request
      * メソッド指定
      *
      * @param string $method
-     * @return self
+     * @return $this
      */
     public function setMethod(string $method): self
     {
@@ -59,7 +59,7 @@ class Request
      * パラメータ設定
      *
      * @param array $parameters パラメータ
-     * @return self
+     * @return $this
      */
     public function setParameters(array $parameters): self
     {

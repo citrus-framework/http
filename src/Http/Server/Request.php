@@ -43,7 +43,7 @@ class Request
     /**
      * オブジェクトの生成
      *
-     * @return self
+     * @return $this
      * @throws HttpException
      */
     public static function generate(): self

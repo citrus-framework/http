@@ -59,10 +59,12 @@ class Response
      * 結果アイテムの追加
      *
      * @param mixed $item 結果アイテム
+     * @return $this
      */
-    public function addItem($item): void
+    public function addItem($item): self
     {
         $this->items[] = $item;
+        return $this;
     }
 
 
@@ -71,10 +73,12 @@ class Response
      * 結果メッセージの追加
      *
      * @param mixed $message 結果メッセージ
+     * @return $this
      */
-    public function addMessage($message): void
+    public function addMessage($message): self
     {
         $this->messages[] = $message;
+        return $this;
     }
 
 
@@ -82,7 +86,7 @@ class Response
     /**
      * success
      *
-     * @return self
+     * @return $this
      */
     public static function success(): self
     {
@@ -96,7 +100,7 @@ class Response
     /**
      * failure
      *
-     * @return self
+     * @return $this
      */
     public static function failure(): self
     {
