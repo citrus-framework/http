@@ -86,7 +86,7 @@ class Response
     /**
      * success
      *
-     * @return self
+     * @return $this
      */
     public static function success(): self
     {
@@ -100,7 +100,7 @@ class Response
     /**
      * failure
      *
-     * @return self
+     * @return $this
      */
     public static function failure(): self
     {

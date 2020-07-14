@@ -33,7 +33,7 @@ class Response
      * cURLのハンドルから情報を取得して設定
      *
      * @param resource $handle cURLハンドル
-     * @return self
+     * @return $this
      */
     public function bind($handle): self
     {
