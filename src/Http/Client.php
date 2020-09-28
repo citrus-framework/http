@@ -58,17 +58,16 @@ class Client
     public static function request(Request $request): Response
     {
         $url = $request->url;
-        $parameters = $request->parameters;
         // 接続オプション配列
         $options = [];
         // クエリパラメータが配列なら文字列化
-        $http_query = (true === is_array($parameters) ? http_build_query($parameters) : $parameters);
+        $http_query = $request->makeQueryParameters();
 
         // リクエストパラメータ(GET)
         if (Method::GET === $request->method)
         {
             // GETリクエストの場合にクエリパラメータにくっつける
-            $url = sprintf('%s?%s', $request->url, $http_query);
+            $url = $request->makeURL($http_query);
         }
         // リクエストパラメータ(POST)
         if (Method::POST === $request->method)
