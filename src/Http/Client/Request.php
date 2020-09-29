@@ -27,6 +27,9 @@ class Request
     /** @var array リクエストパラメータ */
     public $parameters = [];
 
+    /** @var Header ヘッダ情報 */
+    public $header;
+
 
 
     /**
@@ -50,6 +53,20 @@ class Request
     public function setMethod(string $method): self
     {
         $this->method = $method;
+        return $this;
+    }
+
+
+
+    /**
+     * ヘッダ指定
+     *
+     * @param Header $header
+     * @return $this
+     */
+    public function setHeader(Header $header): self
+    {
+        $this->header = $header;
         return $this;
     }
 
@@ -91,7 +108,7 @@ class Request
      * @param string|null $query_parameter クエリパラメーター
      * @return string
      */
-    public function makeURL(string $query_parameter = null): string
+    public function makeURL(?string $query_parameter = null): string
     {
         $query_parameter = $query_parameter ?? $this->makeQueryParameters();
         return sprintf('%s?%s', $this->url, $query_parameter);

@@ -49,6 +49,7 @@ class Client
     }
 
 
+
     /**
      * リクエストを送る
      *
@@ -83,6 +84,14 @@ class Client
             CURLOPT_URL => $url, // URL
             CURLOPT_FOLLOWLOCATION => true, // Locationヘッダが有る場合に追跡する
         ];
+
+        // ヘッダ情報がある場合
+        if (false === is_null($request->header))
+        {
+            $options += [
+                CURLOPT_HTTPHEADER => $request->header->toArray(),
+            ];
+        }
 
         // 接続開始
         $handle = curl_init();
