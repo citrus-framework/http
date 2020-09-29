@@ -27,6 +27,9 @@ class Request
     /** @var array リクエストパラメータ */
     public $parameters = [];
 
+    /** @var Header ヘッダ情報 */
+    public $header;
+
 
 
     /**
@@ -50,6 +53,20 @@ class Request
     public function setMethod(string $method): self
     {
         $this->method = $method;
+        return $this;
+    }
+
+
+
+    /**
+     * ヘッダ指定
+     *
+     * @param Header $header
+     * @return $this
+     */
+    public function setHeader(Header $header): self
+    {
+        $this->header = $header;
         return $this;
     }
 
