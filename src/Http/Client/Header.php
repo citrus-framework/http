@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace Citrus\Http\Client;
 
+use Citrus\Http\Auth\AuthPattern;
+use Citrus\Http\Auth\HeaderAuthorizationToken;
 use Citrus\Variable\Instance;
 
 /**
@@ -56,7 +58,20 @@ class Header
         return $this->addHeader(self::AUTHORIZATION, sprintf('Bearer %s', $token));
     }
 
-
+    /**
+     * 認証用トークン設定
+     *
+     * @param AuthPattern|HeaderAuthorizationToken $authPattern 認証
+     * @return $this
+     */
+    public function authorization(AuthPattern|HeaderAuthorizationToken $authPattern): self
+    {
+        if ($authPattern instanceof HeaderAuthorizationToken)
+        {
+            return $this->addHeader(self::AUTHORIZATION, $authPattern->authorizationToken());
+        }
+        return $this;
+    }
 
     /**
      * curl_setopt の CURLOPT_HTTPHEADER に設定できるように文字列配列で返却する

@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Test\Http\Client;
 
+use Citrus\Http\Auth\BearerToken;
 use Citrus\Http\Client\Header;
 use PHPUnit\Framework\TestCase;
 
@@ -24,6 +25,18 @@ class HeaderTest extends TestCase
     public function authorizationBearer_想定通り()
     {
         $header = Header::getInstance()->authorizationBearer('TESTTEST');
+        // 検算
+        $this->assertSame(['Authorization: Bearer TESTTEST'], $header->toArray());
+    }
+
+    /**
+     * @test
+     */
+    public function authorization_想定通り()
+    {
+        $bearerToken = new BearerToken('TESTTEST');
+
+        $header = Header::getInstance()->authorization($bearerToken);
         // 検算
         $this->assertSame(['Authorization: Bearer TESTTEST'], $header->toArray());
     }
