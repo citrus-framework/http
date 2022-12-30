@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Citrus\Http\Client;
 
-use Citrus\Http\Method;
+use Citrus\Http\MethodType;
 
 /**
  * リクエスト処理
@@ -18,45 +18,33 @@ use Citrus\Http\Method;
  */
 class Request
 {
-    /** @var string URL */
-    public $url;
-
-    /** @var string メソッド */
-    public $method = Method::GET;
-
-    /** @var array リクエストパラメータ */
-    public $parameters = [];
-
-    /** @var Header ヘッダ情報 */
-    public $header;
-
-
-
     /**
      * constructor.
      *
-     * @param string $url URL
+     * @param string          $url        URL
+     * @param array           $parameters パラメーター
+     * @param MethodType|null $method     HTTPメソッド
+     * @param Header|null     $header     ヘッダー設定
      */
-    public function __construct(string $url)
-    {
-        $this->url = $url;
+    public function __construct(
+        public string $url,
+        public array $parameters,
+        public MethodType|null $method = MethodType::GET,
+        public Header|null $header = null,
+    ) {
     }
-
-
 
     /**
      * メソッド指定
      *
-     * @param string $method
+     * @param MethodType $method
      * @return $this
      */
-    public function setMethod(string $method): self
+    public function setMethod(MethodType $method): self
     {
         $this->method = $method;
         return $this;
     }
-
-
 
     /**
      * ヘッダ指定
@@ -70,8 +58,6 @@ class Request
         return $this;
     }
 
-
-
     /**
      * パラメータ設定
      *
@@ -83,8 +69,6 @@ class Request
         $this->parameters = $parameters;
         return $this;
     }
-
-
 
     /**
      * クエリ文字列を生成して返却
@@ -99,8 +83,6 @@ class Request
         }
         return '';
     }
-
-
 
     /**
      * クエリURL

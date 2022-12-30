@@ -21,10 +21,10 @@ class Header
 {
     use Instance;
 
-    /** @var string ContentType */
+    /** Header ContentType */
     public const CONTENT_TYPE = 'Content-Type';
 
-    /** @var string Authorization */
+    /** Header Authorization */
     public const AUTHORIZATION = 'Authorization';
 
     /** @var array [string => string...] ヘッダー情報をスタックする */
@@ -44,8 +44,6 @@ class Header
         $this->stacks[$key] = $value;
         return $this;
     }
-
-
 
     /**
      * Bearer認証用トークン設定

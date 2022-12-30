@@ -26,14 +26,12 @@ trait Post
      * POSTデータの取得
      *
      * @param string $path パス
-     * @return mixed
+     * @return string|null
      */
-    public function post(string $path)
+    public function post(string $path): ?string
     {
         return Arrays::path($this->post, $path);
     }
-
-
 
     /**
      * POSTデータの取得(全て)
@@ -45,8 +43,6 @@ trait Post
         return $this->post;
     }
 
-
-
     /**
      * POSTデータがあるかどうか
      *
@@ -56,8 +52,6 @@ trait Post
     {
         return (0 < count($this->post));
     }
-
-
 
     /**
      * POSTデータの設定

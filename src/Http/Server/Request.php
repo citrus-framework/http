@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Citrus\Http\Server;
 
 use Citrus\Http\HttpException;
-use Citrus\Http\Method;
+use Citrus\Http\MethodType;
 use Citrus\Http\Server\Method\Get;
 use Citrus\Http\Server\Method\Json;
 use Citrus\Http\Server\Method\Post;
@@ -50,7 +50,7 @@ class Request
     {
         $self = new self();
         // メソッドの判定
-        $self->method = Method::judgement();
+        $self->method = MethodType::judgement();
 
         // リクエスト情報
         $self->setupGet();
@@ -67,8 +67,6 @@ class Request
         return $self;
     }
 
-
-
     /**
      * リクエスト時間の取得
      *
@@ -78,8 +76,6 @@ class Request
     {
         return $this->request_time;
     }
-
-
 
     /**
      * リクエストパスの取得

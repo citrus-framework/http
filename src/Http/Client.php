@@ -21,34 +21,26 @@ class Client
     /**
      * getリクエスト
      *
-     * @param string $url
-     * @param array  $parameters
+     * @param string   $url
+     * @param string[] $parameters
      * @return Response
      */
     public static function get(string $url, array $parameters = []): Response
     {
-        return self::request(
-            (new Request($url))->setMethod(Method::GET)->setParameters($parameters)
-        );
+        return self::request(new Request($url, $parameters));
     }
-
-
 
     /**
      * postリクエスト
      *
-     * @param string $url
-     * @param mixed  $parameters
+     * @param string   $url
+     * @param string[] $parameters
      * @return Response
      */
-    public static function post(string $url, $parameters = []): Response
+    public static function post(string $url, array $parameters = []): Response
     {
-        return self::request(
-            (new Request($url))->setMethod(Method::POST)->setParameters($parameters)
-        );
+        return self::request(new Request($url, $parameters, MethodType::POST));
     }
-
-
 
     /**
      * リクエストを送る
@@ -65,13 +57,13 @@ class Client
         $http_query = $request->makeQueryParameters();
 
         // リクエストパラメータ(GET)
-        if (Method::GET === $request->method)
+        if (MethodType::GET === $request->method)
         {
             // GETリクエストの場合にクエリパラメータにくっつける
             $url = $request->makeURL($http_query);
         }
         // リクエストパラメータ(POST)
-        if (Method::POST === $request->method)
+        if (MethodType::POST === $request->method)
         {
             $options += [
                 CURLOPT_POST => true,

@@ -26,14 +26,12 @@ trait Json
      * JSONデータの取得
      *
      * @param string $path パス
-     * @return mixed
+     * @return string|null
      */
-    public function json(string $path)
+    public function json(string $path): ?string
     {
         return Arrays::path($this->json, $path);
     }
-
-
 
     /**
      * JSONデータの取得(全て)
@@ -45,8 +43,6 @@ trait Json
         return $this->json;
     }
 
-
-
     /**
      * JSONデータがあるかどうか
      *
@@ -56,8 +52,6 @@ trait Json
     {
         return (0 < count($this->json));
     }
-
-
 
     /**
      * JSONデータの設定

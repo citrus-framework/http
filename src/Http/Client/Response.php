@@ -32,10 +32,10 @@ class Response
     /**
      * cURLのハンドルから情報を取得して設定
      *
-     * @param resource $handle cURLハンドル
+     * @param \CurlHandle $handle cURLハンドル
      * @return $this
      */
-    public function bind($handle): self
+    public function bind(\CurlHandle $handle): self
     {
         // 情報取得ように固定設定するオプション
         curl_setopt_array($handle, [

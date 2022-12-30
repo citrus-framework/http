@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Test\Http;
 
 use Citrus\Http\HttpException;
-use Citrus\Http\Method;
+use Citrus\Http\MethodType;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -27,6 +27,6 @@ class  MethodTest extends TestCase
     {
         $_SERVER['REQUEST_METHOD'] = 'POST';
         // 検証
-        $this->assertSame(Method::POST, Method::judgement());
+        $this->assertSame(MethodType::POST->value, MethodType::judgement());
     }
 }

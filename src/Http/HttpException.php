@@ -27,8 +27,6 @@ class HttpException extends CitrusException
         parent::exceptionIf($expr, $message);
     }
 
-
-
     /**
      * {@inheritDoc}
      *

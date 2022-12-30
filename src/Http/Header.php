@@ -23,8 +23,6 @@ class Header
         header('HTTP/1.0 200 OK');
     }
 
-
-
     /**
      * status 204
      */
@@ -32,8 +30,6 @@ class Header
     {
         header('HTTP/1.0 204 No Content');
     }
-
-
 
     /**
      * status 401
@@ -43,8 +39,6 @@ class Header
         header('HTTP/1.0 401 Unauthorized');
     }
 
-
-
     /**
      * status 403
      */
@@ -53,8 +47,6 @@ class Header
         header('HTTP/1.0 403 Forbidden');
     }
 
-
-
     /**
      * status 404
      */
@@ -62,8 +54,6 @@ class Header
     {
         header('HTTP/1.0 404 Not Found');
     }
-
-
 
     /**
      * status 503

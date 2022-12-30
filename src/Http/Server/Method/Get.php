@@ -26,14 +26,12 @@ trait Get
      * GETデータの取得
      *
      * @param string $path パス
-     * @return mixed
+     * @return string|null
      */
-    public function get(string $path)
+    public function get(string $path): ?string
     {
         return Arrays::path($this->get, $path);
     }
-
-
 
     /**
      * GETデータの取得(全て)
@@ -45,8 +43,6 @@ trait Get
         return $this->get;
     }
 
-
-
     /**
      * GETデータがあるかどうか
      *
@@ -56,8 +52,6 @@ trait Get
     {
         return (0 < count($this->get));
     }
-
-
 
     /**
      * GETデータの設定

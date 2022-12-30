@@ -41,8 +41,6 @@ class Response
         $this->items = $items;
     }
 
-
-
     /**
      * JSON文字列を返却
      *
@@ -53,15 +51,13 @@ class Response
         return json_encode($this);
     }
 
-
-
     /**
      * 結果アイテムの追加
      *
-     * @param mixed $item 結果アイテム
+     * @param \ArrayAccess $item 結果アイテム
      * @return $this
      */
-    public function addItem($item): self
+    public function addItem(\ArrayAccess $item): self
     {
         $this->items[] = $item;
         return $this;
@@ -72,16 +68,14 @@ class Response
     /**
      * 結果メッセージの追加
      *
-     * @param mixed $message 結果メッセージ
+     * @param string $message 結果メッセージ
      * @return $this
      */
-    public function addMessage($message): self
+    public function addMessage(string $message): self
     {
         $this->messages[] = $message;
         return $this;
     }
-
-
 
     /**
      * success
@@ -94,8 +88,6 @@ class Response
         $self->result = true;
         return $self;
     }
-
-
 
     /**
      * failure
