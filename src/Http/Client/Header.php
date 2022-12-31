@@ -59,14 +59,14 @@ class Header
     /**
      * 認証用トークン設定
      *
-     * @param AuthObject|HeaderAuthorizationToken $authPattern 認証
+     * @param AuthObject|HeaderAuthorizationToken $authObject 認証
      * @return $this
      */
-    public function authorization(AuthObject|HeaderAuthorizationToken $authPattern): self
+    public function authorization(AuthObject|HeaderAuthorizationToken $authObject): self
     {
-        if ($authPattern instanceof HeaderAuthorizationToken)
+        if ($authObject instanceof HeaderAuthorizationToken)
         {
-            return $this->addHeader(self::AUTHORIZATION, $authPattern->authorizationToken());
+            return $this->addHeader(self::AUTHORIZATION, $authObject->authorizationToken());
         }
         return $this;
     }
