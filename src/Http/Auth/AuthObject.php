@@ -13,7 +13,7 @@ namespace Citrus\Http\Auth;
 /**
  * 認証クラスの共通箇所の抽象
  */
-interface AuthPattern
+interface AuthObject
 {
     /**
      * 認証タイプを取得する

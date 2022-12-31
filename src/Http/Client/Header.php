@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Citrus\Http\Client;
 
-use Citrus\Http\Auth\AuthPattern;
+use Citrus\Http\Auth\AuthObject;
 use Citrus\Http\Auth\HeaderAuthorizationToken;
 use Citrus\Variable\Instance;
 
@@ -59,10 +59,10 @@ class Header
     /**
      * 認証用トークン設定
      *
-     * @param AuthPattern|HeaderAuthorizationToken $authPattern 認証
+     * @param AuthObject|HeaderAuthorizationToken $authPattern 認証
      * @return $this
      */
-    public function authorization(AuthPattern|HeaderAuthorizationToken $authPattern): self
+    public function authorization(AuthObject|HeaderAuthorizationToken $authPattern): self
     {
         if ($authPattern instanceof HeaderAuthorizationToken)
         {

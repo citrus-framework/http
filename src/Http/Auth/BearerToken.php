@@ -13,7 +13,7 @@ namespace Citrus\Http\Auth;
 /**
  * 認証クラスの共通箇所の抽象
  */
-class BearerToken implements AuthPattern, HeaderAuthorizationToken
+class BearerToken implements AuthObject, HeaderAuthorizationToken
 {
     /**
      * constructor.
