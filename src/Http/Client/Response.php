@@ -19,13 +19,13 @@ use Citrus\Variable\Strings;
 class Response
 {
     /** @var int ステータスコード */
-    public $status;
+    public int $status;
 
     /** @var array ヘッダー配列 */
-    public $headers = [];
+    public array $headers = [];
 
     /** @var string レスポンスボディ */
-    public $body = '';
+    public string $body = '';
 
 
 

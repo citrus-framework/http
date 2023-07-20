@@ -18,7 +18,7 @@ use Citrus\Variable\Arrays;
 trait Get
 {
     /** @var array $_GET */
-    private $get = [];
+    private array $get = [];
 
 
 
