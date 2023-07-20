@@ -14,7 +14,7 @@ namespace Citrus\Http\Server;
  * レスポンス処理
  * このライブラリが配置される場所をサーバーとする場合
  */
-class Response implements ResponseTo
+class Response extends ResponseTo
 {
     /** @var bool result */
     public bool $result = false;
@@ -39,26 +39,6 @@ class Response implements ResponseTo
             $this->result = true;
         }
         $this->items = $items;
-    }
-
-    /**
-     * 文字列を返却
-     *
-     * @return string
-     */
-    public function toString(): string
-    {
-        return serialize($this);
-    }
-
-    /**
-     * JSON文字列を返却
-     *
-     * @return string
-     */
-    public function toJson(): string
-    {
-        return json_encode($this);
     }
 
     /**
