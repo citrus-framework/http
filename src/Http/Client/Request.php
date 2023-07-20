@@ -90,7 +90,7 @@ class Request
      * @param string|null $query_parameter クエリパラメーター
      * @return string
      */
-    public function makeURL(?string $query_parameter = null): string
+    public function makeURL(string|null $query_parameter = null): string
     {
         $query_parameter = $query_parameter ?? $this->makeQueryParameters();
         return sprintf('%s?%s', $this->url, $query_parameter);

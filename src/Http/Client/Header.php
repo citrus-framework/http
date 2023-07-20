@@ -28,7 +28,7 @@ class Header
     public const AUTHORIZATION = 'Authorization';
 
     /** @var array [string => string...] ヘッダー情報をスタックする */
-    public $stacks = [];
+    public array $stacks = [];
 
 
 
@@ -76,7 +76,7 @@ class Header
      *
      * @return string[]
      */
-    public function toArray()
+    public function toArray(): array
     {
         $result = [];
         foreach ($this->stacks as $ky => $vl)

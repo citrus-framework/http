@@ -14,16 +14,16 @@ namespace Citrus\Http\Server;
  * レスポンス処理
  * このライブラリが配置される場所をサーバーとする場合
  */
-class Response implements ResponseInterface
+class Response implements ResponseTo
 {
     /** @var bool result */
-    public $result = false;
+    public bool $result = false;
 
-    /** @var array result objects */
-    public $items = [];
+    /** @var array|null result objects */
+    public array|null $items = [];
 
-    /** @var array message objects */
-    public $messages = [];
+    /** @var array|null message objects */
+    public array|null $messages = [];
 
 
 
@@ -32,7 +32,7 @@ class Response implements ResponseInterface
      *
      * @param array|null $items
      */
-    public function __construct(array $items = [])
+    public function __construct(array|null $items = [])
     {
         if (0 < count($items))
         {
@@ -72,8 +72,6 @@ class Response implements ResponseInterface
         $this->items[] = $item;
         return $this;
     }
-
-
 
     /**
      * 結果メッセージの追加

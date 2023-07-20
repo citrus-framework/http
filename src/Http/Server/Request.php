@@ -27,16 +27,16 @@ class Request
     use Json;
 
     /** @var string メソッド */
-    private $method;
+    private string $method;
 
     /** @var array $_FILES */
-    private $files = [];
+    private array $files = [];
 
     /** @var int request time unit timestamp */
-    private $request_time;
+    private int $request_time;
 
     /** @var string request path http://example.com/hoge/fuga => "/hoge/fuga" */
-    private $request_path;
+    private string $request_path;
 
 
 

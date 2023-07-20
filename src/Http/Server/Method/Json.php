@@ -18,7 +18,7 @@ use Citrus\Variable\Arrays;
 trait Json
 {
     /** @var array $_JSON */
-    private $json = [];
+    private array $json = [];
 
 
 

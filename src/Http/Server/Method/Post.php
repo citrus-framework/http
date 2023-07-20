@@ -18,7 +18,7 @@ use Citrus\Variable\Arrays;
 trait Post
 {
     /** @var array $_POST */
-    private $post = [];
+    private array $post = [];
 
 
 
