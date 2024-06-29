@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * メソッドクラスのテスト
  */
-class  MethodTest extends TestCase
+class  MethodTypeTest extends TestCase
 {
     /**
      * @test
@@ -27,6 +27,6 @@ class  MethodTest extends TestCase
     {
         $_SERVER['REQUEST_METHOD'] = 'POST';
         // 検証
-        $this->assertSame(MethodType::POST->value, MethodType::judgement());
+        $this->assertSame(MethodType::POST, MethodType::judgement());
     }
 }
