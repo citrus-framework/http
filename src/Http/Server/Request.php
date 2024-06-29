@@ -26,8 +26,8 @@ class Request
     use Post;
     use Json;
 
-    /** @var string メソッド */
-    private string $method;
+    /** @var MethodType メソッド */
+    private MethodType $method;
 
     /** @var array $_FILES */
     private array $files = [];
@@ -37,8 +37,6 @@ class Request
 
     /** @var string request path http://example.com/hoge/fuga => "/hoge/fuga" */
     private string $request_path;
-
-
 
     /**
      * オブジェクトの生成

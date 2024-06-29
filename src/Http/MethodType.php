@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace Citrus\Http;
 
+use Citrus\Collection;
+
 /**
  * メソッド
  */
@@ -39,28 +41,28 @@ enum MethodType: string
     /** CONNECT  */
     case CONNECT = 'connect';
 
-
-
     /**
      * メソッドを判別する
      *
-     * @return string
+     * @return MethodType
      * @throws HttpException
      */
-    public static function judgement(): string
+    public static function judgement(): MethodType
     {
         // グローバル変数から取得
         $request_method = strtolower($_SERVER['REQUEST_METHOD'] ?? '');
 
-        /** @var string[] $methods */
-        $methods = array_map(fn (MethodType $method) => $method->value, self::cases());
+        // 一致するメソッドがあるか？
+        $method = Collection::stream(self::cases())->first(function (MethodType $value, $key) use ($request_method) {
+            return $value->value === strtolower($request_method);
+        });
 
         // 未定義のメソッドはありえない、とする
-        HttpException::exceptionElse(
-            in_array($request_method, $methods, true),
+        HttpException::exceptionIf(
+            is_null($method),
             sprintf('未定義のリクエストメソッド「%s」', $request_method)
         );
 
-        return $request_method;
+        return $method;
     }
 }

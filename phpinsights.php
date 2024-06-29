@@ -33,6 +33,10 @@ return [
         NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses::class,
         NunoMaduro\PhpInsights\Domain\Insights\ForbiddenTraits::class,
         SlevomatCodingStandard\Sniffs\Classes\SuperfluousExceptionNamingSniff::class,
+
+        // Style
+        PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\ArbitraryParenthesesSpacingSniff::class,
+        PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ElseIfDeclarationSniff::class,
     ],
     'config' => [
         // Architecture
@@ -47,13 +51,19 @@ return [
             'position_after_control_structures' => 'next',
             'position_after_functions_and_oop_constructs' => 'next',
         ],
+        PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer::class => [
+            'operators' => [
+                '=>' => 'align_single_space',
+            ],
+            'default' => 'single_space', // default fix strategy: possibles values ['align', 'align_single_space', 'align_single_space_minimal', 'single_space', 'no_space', null]
+        ],
         PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer::class => [
             'tokens' => [], // possibles values ['break', 'case', 'continue', 'curly_brace_block', 'default', 'extra', 'parenthesis_brace_block', 'return', 'square_brace_block', 'switch', 'throw', 'use', 'use_trait']
         ],
         PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
             'lineLimit' => 120,
-            'absoluteLineLimit' => 100,
-            'ignoreComments' => false,
+            'absoluteLineLimit' => 120,
+            'ignoreComments' => true,
         ],
         SlevomatCodingStandard\Sniffs\Commenting\DocCommentSpacingSniff::class => [
             'linesCountBeforeFirstContent' => 0,
