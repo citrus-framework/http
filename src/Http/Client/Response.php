@@ -39,7 +39,7 @@ class Response
     {
         // 情報取得ように固定設定するオプション
         curl_setopt_array($handle, [
-            CURLOPT_HEADER => true, // ヘッダ内容を出力しない
+            CURLOPT_HEADER         => true, // ヘッダ内容を出力しない
             CURLOPT_RETURNTRANSFER => true, // 結果を文字列で返却
         ]);
 

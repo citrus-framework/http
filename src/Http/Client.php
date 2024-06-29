@@ -66,14 +66,14 @@ class Client
         if (MethodType::POST === $request->method)
         {
             $options += [
-                CURLOPT_POST => true,
+                CURLOPT_POST       => true,
                 CURLOPT_POSTFIELDS => $http_query, // パラメータをPOSTフィールドへ
             ];
         }
 
         // 固定的に設定しておくオプション
         $options += [
-            CURLOPT_URL => $url, // URL
+            CURLOPT_URL            => $url, // URL
             CURLOPT_FOLLOWLOCATION => true, // Locationヘッダが有る場合に追跡する
         ];
 
