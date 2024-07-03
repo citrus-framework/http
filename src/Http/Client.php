@@ -20,7 +20,6 @@ class Client
 {
     /**
      * getリクエスト
-     *
      * @param string   $url
      * @param string[] $parameters
      * @return Response
@@ -32,7 +31,6 @@ class Client
 
     /**
      * postリクエスト
-     *
      * @param string   $url
      * @param string[] $parameters
      * @return Response
@@ -44,7 +42,6 @@ class Client
 
     /**
      * リクエストを送る
-     *
      * @param Request $request リクエスト情報
      * @return Response
      */

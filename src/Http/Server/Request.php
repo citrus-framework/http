@@ -40,7 +40,6 @@ class Request
 
     /**
      * オブジェクトの生成
-     *
      * @return $this
      * @throws HttpException
      */
@@ -67,7 +66,6 @@ class Request
 
     /**
      * リクエスト時間の取得
-     *
      * @return int
      */
     public function requestTime(): int
@@ -77,7 +75,6 @@ class Request
 
     /**
      * リクエストパスの取得
-     *
      * @return string
      */
     public function requestPath(): string
