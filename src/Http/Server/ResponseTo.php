@@ -18,7 +18,6 @@ abstract class ResponseTo
 {
     /**
      * 文字列を返却
-     *
      * @return string
      */
     public function toString(): string
@@ -28,7 +27,7 @@ abstract class ResponseTo
 
     /**
      * JSON文字列を返却
-     *
+     * publicなフィールドが返却されます
      * @return string
      */
     public function toJson(): string

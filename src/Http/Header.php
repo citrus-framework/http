@@ -62,4 +62,20 @@ class Header
     {
         header('HTTP/1.0 503 Service Unavailable');
     }
+
+    /**
+     * Content-Type: text/html; charset=UTF-8
+     */
+    public static function contentTypeHtml(): void
+    {
+        header('Content-Type: text/html; charset=UTF-8');
+    }
+
+    /**
+     * Content-Type: application/json; charset=UTF-8
+     */
+    public static function contentTypeJson(): void
+    {
+        header('Content-Type: application/json; charset=UTF-8');
+    }
 }

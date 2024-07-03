@@ -16,34 +16,24 @@ namespace Citrus\Http\Server;
  */
 class Response extends ResponseTo
 {
-    /** @var bool result */
-    public bool $result = false;
-
-    /** @var array|null result objects */
-    public array|null $items = [];
-
-    /** @var array|null message objects */
-    public array|null $messages = [];
-
-
-
     /**
      * constructor.
-     *
-     * @param array|null $items
+     * @param array|null    $items    返却配列
+     * @param array|null    $messages メッセージ配列
+     * @param bool|null     $result   結果
+     * @param string[]|null $headers  ヘッダー配列
      */
-    public function __construct(array|null $items = [])
-    {
-        if (0 < count($items))
-        {
-            $this->result = true;
-        }
-        $this->items = $items;
+    public function __construct(
+        public array|null $items = [],
+        public array|null $messages = [],
+        public bool|null $result = false,
+        protected array|null $headers = [],
+    ) {
+        $this->result = (0 < count($this->items));
     }
 
     /**
      * 結果アイテムの追加
-     *
      * @param \ArrayAccess $item 結果アイテム
      * @return $this
      */
@@ -55,7 +45,6 @@ class Response extends ResponseTo
 
     /**
      * 結果メッセージの追加
-     *
      * @param string $message 結果メッセージ
      * @return $this
      */
@@ -67,7 +56,6 @@ class Response extends ResponseTo
 
     /**
      * success
-     *
      * @return $this
      */
     public static function success(): self
@@ -79,7 +67,6 @@ class Response extends ResponseTo
 
     /**
      * failure
-     *
      * @return $this
      */
     public static function failure(): self
@@ -87,5 +74,17 @@ class Response extends ResponseTo
         $self = new self();
         $self->result = false;
         return $self;
+    }
+
+    /**
+     * ヘッダーを出力する
+     * @return void
+     */
+    public function outputHeaders(): void
+    {
+        foreach ($this->headers as $header)
+        {
+            header($header);
+        }
     }
 }
