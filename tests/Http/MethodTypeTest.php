@@ -12,6 +12,7 @@ namespace Test\Http;
 
 use Citrus\Http\HttpException;
 use Citrus\Http\MethodType;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -20,9 +21,9 @@ use PHPUnit\Framework\TestCase;
 class  MethodTypeTest extends TestCase
 {
     /**
-     * @test
      * @throws HttpException
      */
+    #[Test]
     public function judgement_想定通り()
     {
         $_SERVER['REQUEST_METHOD'] = 'POST';

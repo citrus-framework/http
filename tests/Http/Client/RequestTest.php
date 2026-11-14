@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Test\Http\Client;
 
 use Citrus\Http\Client;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,9 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RequestTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function get_想定通り()
     {
         $response = Client::get('http://example.com/');

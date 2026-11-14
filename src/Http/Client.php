@@ -54,28 +54,28 @@ class Client
         $http_query = $request->makeQueryParameters();
 
         // リクエストパラメータ(GET)
-        if (MethodType::GET === $request->method)
+        if ($request->method === MethodType::GET)
         {
             // GETリクエストの場合にクエリパラメータにくっつける
             $url = $request->makeURL($http_query);
         }
         // リクエストパラメータ(POST)
-        if (MethodType::POST === $request->method)
+        if ($request->method === MethodType::POST)
         {
             $options += [
-                CURLOPT_POST       => true,
+                CURLOPT_POST => true,
                 CURLOPT_POSTFIELDS => $http_query, // パラメータをPOSTフィールドへ
             ];
         }
 
         // 固定的に設定しておくオプション
         $options += [
-            CURLOPT_URL            => $url, // URL
+            CURLOPT_URL => $url, // URL
             CURLOPT_FOLLOWLOCATION => true, // Locationヘッダが有る場合に追跡する
         ];
 
         // ヘッダ情報がある場合
-        if (false === is_null($request->header))
+        if (is_null($request->header) === false)
         {
             $options += [
                 CURLOPT_HTTPHEADER => $request->header->toArray(),
@@ -86,10 +86,7 @@ class Client
         $handle = curl_init();
         // オプション設定
         curl_setopt_array($handle, $options);
-        // 実行して情報を取得
-        $response = (new Response())->bind($handle);
-        // 接続終了
-        curl_close($handle);
-        return $response;
+        // 実行して情報を取得(接続は、ハンドルが使われなくなったときに閉じる)
+        return (new Response())->bind($handle);
     }
 }

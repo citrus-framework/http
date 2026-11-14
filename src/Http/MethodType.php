@@ -43,7 +43,6 @@ enum MethodType: string
 
     /**
      * メソッドを判別する
-     *
      * @return MethodType
      * @throws HttpException
      */

@@ -17,7 +17,6 @@ interface HeaderAuthorizationToken
 {
     /**
      * Authorizationトークン文字列を生成して取得する
-     *
      * @return string Authorizationトークン文字列
      */
     public function authorizationToken(): string;

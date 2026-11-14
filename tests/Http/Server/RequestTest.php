@@ -12,6 +12,7 @@ namespace Test\Http\Server;
 
 use Citrus\Http\HttpException;
 use Citrus\Http\Server\Request;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -20,9 +21,9 @@ use PHPUnit\Framework\TestCase;
 class RequestTest extends TestCase
 {
     /**
-     * @test
      * @throws HttpException
      */
+    #[Test]
     public function generate_データが初期化されている()
     {
         $_GET['hoge1'] = 'fuga1';

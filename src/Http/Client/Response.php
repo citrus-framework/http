@@ -27,11 +27,8 @@ class Response
     /** @var string レスポンスボディ */
     public string $body = '';
 
-
-
     /**
      * cURLのハンドルから情報を取得して設定
-     *
      * @param \CurlHandle $handle cURLハンドル
      * @return $this
      */
@@ -39,7 +36,7 @@ class Response
     {
         // 情報取得ように固定設定するオプション
         curl_setopt_array($handle, [
-            CURLOPT_HEADER         => true, // ヘッダ内容を出力しない
+            CURLOPT_HEADER => true, // ヘッダ内容を出力しない
             CURLOPT_RETURNTRANSFER => true, // 結果を文字列で返却
         ]);
 
@@ -63,7 +60,7 @@ class Response
         foreach ($headers as $row)
         {
             // 空文字 or 区切り文字がない場合はスキップ
-            if (true === Strings::isEmpty($row) or false === strpos($row, ':'))
+            if (Strings::isEmpty($row) === true or strpos($row, ':') === false)
             {
                 continue;
             }

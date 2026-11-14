@@ -20,7 +20,6 @@ class Request
 {
     /**
      * constructor.
-     *
      * @param string          $url        URL
      * @param array           $parameters パラメーター
      * @param MethodType|null $method     HTTPメソッド
@@ -36,7 +35,6 @@ class Request
 
     /**
      * メソッド指定
-     *
      * @param MethodType $method
      * @return $this
      */
@@ -48,7 +46,6 @@ class Request
 
     /**
      * ヘッダ指定
-     *
      * @param Header $header
      * @return $this
      */
@@ -60,7 +57,6 @@ class Request
 
     /**
      * パラメータ設定
-     *
      * @param array $parameters パラメータ
      * @return $this
      */
@@ -72,12 +68,11 @@ class Request
 
     /**
      * クエリ文字列を生成して返却
-     *
      * @return string
      */
     public function makeQueryParameters(): string
     {
-        if (0 < count($this->parameters))
+        if (count($this->parameters) > 0)
         {
             return http_build_query($this->parameters);
         }
@@ -86,7 +81,6 @@ class Request
 
     /**
      * クエリURL
-     *
      * @param string|null $query_parameter クエリパラメーター
      * @return string
      */

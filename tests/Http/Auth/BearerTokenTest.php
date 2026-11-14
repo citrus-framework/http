@@ -12,6 +12,7 @@ namespace Test\Http\Auth;
 
 use Citrus\Http\Auth\AuthType;
 use Citrus\Http\Auth\BearerToken;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -19,9 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 class BearerTokenTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function authType_想定通り()
     {
         $bearerToken = new BearerToken('TESTTEST');
@@ -29,9 +28,7 @@ class BearerTokenTest extends TestCase
         $this->assertSame(AuthType::BEARER_TOKEN, $bearerToken->authType());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function authorizationToken_想定通り()
     {
         $bearerToken = new BearerToken('TESTTEST');

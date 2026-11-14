@@ -19,7 +19,6 @@ class HttpException extends CitrusException
 {
     /**
      * {@inheritDoc}
-     *
      * @throws HttpException
      */
     public static function exceptionIf($expr, string $message): void
@@ -29,7 +28,6 @@ class HttpException extends CitrusException
 
     /**
      * {@inheritDoc}
-     *
      * @throws HttpException
      */
     public static function exceptionElse($expr, string $message): void
