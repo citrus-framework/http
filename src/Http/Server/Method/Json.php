@@ -20,11 +20,8 @@ trait Json
     /** @var array $_JSON */
     private array $json = [];
 
-
-
     /**
      * JSONデータの取得
-     *
      * @param string $path パス
      * @return string|null
      */
@@ -35,7 +32,6 @@ trait Json
 
     /**
      * JSONデータの取得(全て)
-     *
      * @return array
      */
     public function jsons(): array
@@ -45,12 +41,11 @@ trait Json
 
     /**
      * JSONデータがあるかどうか
-     *
      * @return bool true:JSONデータがある
      */
     public function isJson(): bool
     {
-        return (0 < count($this->json));
+        return (count($this->json) > 0);
     }
 
     /**

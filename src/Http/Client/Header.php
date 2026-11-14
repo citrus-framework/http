@@ -30,11 +30,8 @@ class Header
     /** @var array [string => string...] ヘッダー情報をスタックする */
     public array $stacks = [];
 
-
-
     /**
      * ヘッダ情報の設定
-     *
      * @param string $key   ヘッダキー
      * @param string $value ヘッダ値
      * @return $this
@@ -47,7 +44,6 @@ class Header
 
     /**
      * Bearer認証用トークン設定
-     *
      * @param string $token トークン文字列
      * @return $this
      */
@@ -58,7 +54,6 @@ class Header
 
     /**
      * 認証用トークン設定
-     *
      * @param AuthObject|HeaderAuthorizationToken $authObject 認証
      * @return $this
      */
@@ -73,7 +68,6 @@ class Header
 
     /**
      * curl_setopt の CURLOPT_HTTPHEADER に設定できるように文字列配列で返却する
-     *
      * @return string[]
      */
     public function toArray(): array

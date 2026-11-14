@@ -29,7 +29,7 @@ class Response extends ResponseTo
         public bool|null $result = false,
         protected array|null $headers = [],
     ) {
-        $this->result = (0 < count($this->items));
+        $this->result = (count($this->items) > 0);
     }
 
     /**

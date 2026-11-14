@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Test\Http\Server;
 
 use Citrus\Http\Server\Response;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,9 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ResponseTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function constructor_想定通り()
     {
         $items = [
@@ -32,11 +31,7 @@ class ResponseTest extends TestCase
         $this->assertTrue($response->result);
     }
 
-
-
-    /**
-     * @test
-     */
+    #[Test]
     public function success_想定通り()
     {
         $response = Response::success();
@@ -44,11 +39,7 @@ class ResponseTest extends TestCase
         $this->assertTrue($response->result);
     }
 
-
-
-    /**
-     * @test
-     */
+    #[Test]
     public function success_itemsを渡せる()
     {
         $items = [
@@ -60,11 +51,7 @@ class ResponseTest extends TestCase
         $this->assertTrue($response->result);
     }
 
-
-
-    /**
-     * @test
-     */
+    #[Test]
     public function success_継承したクラスで返る()
     {
         $response = ExtendedResponse::success();
@@ -72,11 +59,7 @@ class ResponseTest extends TestCase
         $this->assertTrue($response->result);
     }
 
-
-
-    /**
-     * @test
-     */
+    #[Test]
     public function failure_想定通り()
     {
         $response = Response::failure();
@@ -84,11 +67,7 @@ class ResponseTest extends TestCase
         $this->assertFalse($response->result);
     }
 
-
-
-    /**
-     * @test
-     */
+    #[Test]
     public function toJson_想定通り()
     {
         $items = [

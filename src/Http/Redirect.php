@@ -17,7 +17,6 @@ class Redirect
 {
     /**
      * リダイレクト
-     *
      * @param string $location リダイレクト先
      */
     public static function to(string $location): void

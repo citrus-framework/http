@@ -20,11 +20,8 @@ trait Post
     /** @var array $_POST */
     private array $post = [];
 
-
-
     /**
      * POSTデータの取得
-     *
      * @param string $path パス
      * @return string|null
      */
@@ -35,7 +32,6 @@ trait Post
 
     /**
      * POSTデータの取得(全て)
-     *
      * @return array
      */
     public function posts(): array
@@ -45,12 +41,11 @@ trait Post
 
     /**
      * POSTデータがあるかどうか
-     *
      * @return bool true:POSTデータがある
      */
     public function isPost(): bool
     {
-        return (0 < count($this->post));
+        return (count($this->post) > 0);
     }
 
     /**

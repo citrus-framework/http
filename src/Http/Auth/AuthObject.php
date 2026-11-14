@@ -17,7 +17,6 @@ interface AuthObject
 {
     /**
      * 認証タイプを取得する
-     *
      * @return AuthType 認証タイプ
      */
     public function authType(): AuthType;

@@ -17,7 +17,6 @@ class BearerToken implements AuthObject, HeaderAuthorizationToken
 {
     /**
      * constructor.
-     *
      * @param string $bearer_token Bearer Token
      */
     public function __construct(

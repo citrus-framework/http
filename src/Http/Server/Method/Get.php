@@ -20,11 +20,8 @@ trait Get
     /** @var array $_GET */
     private array $get = [];
 
-
-
     /**
      * GETデータの取得
-     *
      * @param string $path パス
      * @return string|null
      */
@@ -35,7 +32,6 @@ trait Get
 
     /**
      * GETデータの取得(全て)
-     *
      * @return array
      */
     public function gets(): array
@@ -45,12 +41,11 @@ trait Get
 
     /**
      * GETデータがあるかどうか
-     *
      * @return bool true:GETデータがある
      */
     public function isGet(): bool
     {
-        return (0 < count($this->get));
+        return (count($this->get) > 0);
     }
 
     /**
