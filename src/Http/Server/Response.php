@@ -56,11 +56,13 @@ class Response extends ResponseTo
 
     /**
      * success
-     * @return $this
+     * items が空でも result は true にする
+     * @param array $items 返却配列
+     * @return static
      */
-    public static function success(): self
+    public static function success(array $items = []): static
     {
-        $self = new self();
+        $self = new static($items);
         $self->result = true;
         return $self;
     }

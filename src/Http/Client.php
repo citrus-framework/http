@@ -86,10 +86,7 @@ class Client
         $handle = curl_init();
         // オプション設定
         curl_setopt_array($handle, $options);
-        // 実行して情報を取得
-        $response = (new Response())->bind($handle);
-        // 接続終了
-        curl_close($handle);
-        return $response;
+        // 実行して情報を取得(接続は、ハンドルが使われなくなったときに閉じる)
+        return (new Response())->bind($handle);
     }
 }
