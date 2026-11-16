@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Citrus\Http\Client;
 
+use Citrus\Http\HttpException;
 use Citrus\Variable\Strings;
 
 /**
@@ -31,6 +32,7 @@ class Response
      * cURLのハンドルから情報を取得して設定
      * @param \CurlHandle $handle cURLハンドル
      * @return $this
+     * @throws HttpException
      */
     public function bind(\CurlHandle $handle): self
     {
@@ -42,6 +44,11 @@ class Response
 
         // データ取得
         $result = curl_exec($handle);
+        // 接続できなかった場合(タイムアウトを含む)
+        if ($result === false)
+        {
+            throw new HttpException(curl_error($handle), curl_errno($handle));
+        }
         // 情報取得
         $info = curl_getinfo($handle);
         // ステータスコード

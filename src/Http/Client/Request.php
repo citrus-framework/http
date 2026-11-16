@@ -24,13 +24,39 @@ class Request
      * @param array           $parameters パラメーター
      * @param MethodType|null $method     HTTPメソッド
      * @param Header|null     $header     ヘッダー設定
+     * @param BodyType        $bodyType   本文の形
+     * @param int|null        $timeout    タイムアウト秒数(接続時間を含む全体の上限)
      */
     public function __construct(
         public string $url,
         public array $parameters,
         public MethodType|null $method = MethodType::GET,
         public Header|null $header = null,
+        public BodyType $bodyType = BodyType::FORM,
+        public int|null $timeout = null,
     ) {
+    }
+
+    /**
+     * 本文の形指定
+     * @param BodyType $bodyType
+     * @return $this
+     */
+    public function setBodyType(BodyType $bodyType): self
+    {
+        $this->bodyType = $bodyType;
+        return $this;
+    }
+
+    /**
+     * タイムアウト指定
+     * @param int|null $timeout 秒数(接続時間を含む全体の上限)
+     * @return $this
+     */
+    public function setTimeout(int|null $timeout): self
+    {
+        $this->timeout = $timeout;
+        return $this;
     }
 
     /**
