@@ -11,6 +11,8 @@ declare(strict_types=1);
 namespace Test\Http\Client;
 
 use Citrus\Http\Client;
+use Citrus\Http\Client\BodyType;
+use Citrus\Http\Client\Request;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -19,6 +21,29 @@ use PHPUnit\Framework\TestCase;
  */
 class RequestTest extends TestCase
 {
+    #[Test]
+    public function 既定値_本文の形はFORM_タイムアウトはnull()
+    {
+        $request = new Request('http://example.com/', []);
+        $this->assertSame(BodyType::FORM, $request->bodyType);
+        $this->assertNull($request->timeout);
+    }
+
+    #[Test]
+    public function setBodyType_想定通り()
+    {
+        $request = (new Request('http://example.com/', []))->setBodyType(BodyType::JSON);
+        $this->assertSame(BodyType::JSON, $request->bodyType);
+    }
+
+    #[Test]
+    public function setTimeout_想定通り()
+    {
+        $request = new Request('http://example.com/', []);
+        $this->assertSame(5, $request->setTimeout(5)->timeout);
+        $this->assertNull($request->setTimeout(null)->timeout);
+    }
+
     #[Test]
     public function get_想定通り()
     {
